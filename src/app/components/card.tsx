@@ -4,13 +4,21 @@ import React from 'react'
 import { client } from "../../sanity/lib/client";
 import { urlFor } from "../../sanity/lib/image";
 
+// Define the Post type
+type Post = {
+  title: string;
+  summary: string;
+  image: string;
+  slug: string;
+};
+
 const Card = async () => {
 
   const query = `*[_type=='post'] | order(_createdAt asc){
-    summary,title,image,
+    summary, title, image,
     "slug":slug.current
   }`;
-  const posts:Post[] = await client.fetch(query);
+  const posts: Post[] = await client.fetch(query);
   console.log(posts);
 
   return (
@@ -20,7 +28,7 @@ const Card = async () => {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap items-center gap-8 -m-4">
             {
-              posts.map((post:Post) => (
+              posts.map((post) => (
                 <div className="h-[110vh] md:w-[30%] sm:w-full w-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden" key={post.slug}>
                   <Image
                     className="w-full h-64 sm:h-48 md:h-56 object-cover object-center"
@@ -33,7 +41,7 @@ const Card = async () => {
                     <h1 className="scroll-m-20 text-2xl font-semibold tracking-tight">
                       {post.title}
                     </h1>
-                    <p className="scroll-m-20 text-lg  tracking-tight mb-4">
+                    <p className="scroll-m-20 text-lg tracking-tight mb-4">
                       {post.summary}
                     </p>
                     <div className="flex items-center flex-wrap">

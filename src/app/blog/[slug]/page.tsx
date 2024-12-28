@@ -4,6 +4,7 @@ import { urlFor } from "@/sanity/lib/image";
 import Image from 'next/image';
 import React from 'react';
 
+// Ensure generateStaticParams returns an object with a 'params' key
 export async function generateStaticParams() {
   const query = `*[_type=='post']{
     "slug":slug.current
@@ -12,10 +13,11 @@ export async function generateStaticParams() {
   const slugRoutes = slugs.map((item: { slug: string }) => item.slug);
   
   return slugRoutes.map((slug: string) => ({
-    slug
+    params: { slug }  // Return as params key
   }));
 }
 
+// The PageProps interface to define the types for 'params'
 type PageProps = {
   params: {
     slug: string;
