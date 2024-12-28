@@ -17,18 +17,15 @@ export async function generateStaticParams() {
   }));
 }
 
-// The PageProps interface to define the types for 'params'
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
+// The Page component for dynamic routes
+const Page = async ({ params }: { params: { slug: string } }) => {
+  const { slug } = params;  // Destructure slug from params
 
-const Page = async ({ params: { slug } }: PageProps) => {
   const query = `*[_type=='post' && slug.current=="${slug}"]{
-      title,summary,image,content,
-      author->{bio,image,name}
+      title, summary, image, content,
+      author->{bio, image, name}
   }[0]`;
+  
   const post = await client.fetch(query);
   console.log(post);
 
