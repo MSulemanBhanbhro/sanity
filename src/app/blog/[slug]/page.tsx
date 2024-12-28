@@ -2,7 +2,9 @@
 
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
-import { client, urlFor } from '../../lib/sanityClient'; // Adjust this import as per your project structure
+// Adjust this import as per your project structure
+import { client } from '@/sanity/lib/client';
+import { urlFor } from '@/sanity/lib/urlFor';
 
 // Generate static params for dynamic routes
 export async function generateStaticParams() {
