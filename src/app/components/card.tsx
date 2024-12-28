@@ -10,7 +10,7 @@ const Card = async () => {
     summary,title,image,
     "slug":slug.current
   }`;
-  const posts = await client.fetch(query);
+  const posts:Post[] = await client.fetch(query);
   console.log(posts);
 
   return (
@@ -20,7 +20,7 @@ const Card = async () => {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap items-center gap-8 -m-4">
             {
-              posts.map((post: any) => (
+              posts.map((post:Post) => (
                 <div className="h-[110vh] md:w-[30%] sm:w-full w-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden" key={post.slug}>
                   <Image
                     className="w-full h-64 sm:h-48 md:h-56 object-cover object-center"
