@@ -19,11 +19,11 @@ export async function generateStaticParams() {
 }
 
 // PageProps interface to define the types for 'params'
-type PageProps = {
+interface PageProps {
   params: {
     slug: string;
   };
-};
+}
 
 const Page = async ({ params: { slug } }: PageProps) => {
   // Query to fetch post details based on slug
@@ -33,7 +33,6 @@ const Page = async ({ params: { slug } }: PageProps) => {
   }[0]`;
   
   const post = await client.fetch(query);
-  console.log(post);
 
   return (
     <article className="mt-12 mb-24 px-8 2xl:px-12 flex flex-col gap-y-8">
