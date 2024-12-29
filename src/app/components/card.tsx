@@ -29,7 +29,7 @@ const Card = async () => {
           <div className="flex flex-wrap items-center gap-8 -m-4">
             {
               posts.map((post) => (
-                <div className="h-[110vh] md:w-[30%] sm:w-full w-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden" key={post.slug}>
+                <div className="md:h-[110vh] h-auto md:w-[30%] sm:w-full w-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden" key={post.slug}>
                   <Image
                     className="w-full h-64 sm:h-48 md:h-56 object-cover object-center"
                     src={urlFor(post.image).url()}
