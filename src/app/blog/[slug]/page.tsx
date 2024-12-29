@@ -41,7 +41,7 @@ const Page = async ({ params }: PageProps) => {
 
   return (
     <article className="mt-12 mb-24 px-8 2xl:px-12 flex flex-col gap-y-8">
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-4xl">
+      <h1 className="scroll-m-20 md:text-4xl text-2xl  font-extrabold tracking-tight lg:text-4xl">
         {post.title}
       </h1>
       <Image
@@ -55,7 +55,7 @@ const Page = async ({ params }: PageProps) => {
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
           Summary
         </h2>
-        <p className="scroll-m-20 text-2xl my-4 tracking-tight">
+        <p className="scroll-m-20 md:text-2xl text-xl  my-4 tracking-tight">
           {post.summary}
         </p>
       </section>
@@ -68,10 +68,10 @@ const Page = async ({ params }: PageProps) => {
           className="object-cover rounded-full h-12 w-12 sm:h-24 sm:w-24"
         />
         <div className="flex flex-col gap-1">
-          <h3 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+          <h3 className="scroll-m-20 border-b pb-2 md:text-3xl lg:text-3xl text-xl font-semibold tracking-tight first:mt-0">
             {post.author.name}
           </h3>
-          <p className="italic scroll-m-20 text-2xl my-2 tracking-tight">
+          <p className="italic scroll-m-20 md:text-2xl lg:text-2xl text-lg my-2 tracking-tight">
             {post.author.bio}
           </p>
         </div>

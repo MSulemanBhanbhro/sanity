@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { FaArrowRight } from "react-icons/fa6";
 import { client } from "../../sanity/lib/client";
 import { urlFor } from "../../sanity/lib/image";
 
@@ -45,8 +46,8 @@ const Card = async () => {
                       {post.summary}
                     </p>
                     <div className="flex items-center flex-wrap">
-                      <Link href={`/blog/${post.slug}`} className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
-                        Read more
+                      <Link href={`/blog/${post.slug}`} className="text-indigo-500 inline-flex items-center gap-2 md:mb-2 lg:mb-0">
+                        Read more  <FaArrowRight />
                       </Link>
                     </div>
                   </div>

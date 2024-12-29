@@ -36,7 +36,7 @@ const Navbar = () => {
               isMenuOpen ? 'block' : 'hidden'
             } md:flex flex-col md:flex-row items-center text-lg md:space-x-8 w-full md:w-auto`}
           >
-            <nav className="flex flex-col md:flex-row items-center md:space-y-0 space-y-4 mt-4 md:mt-0 gap-8">
+            <nav className="flex flex-col md:flex-row items-center md:space-y-0 space-y-2 mt-4 md:mt-0 gap-8">
               <Link
                 href="/"
                 className="hover:text-gray-900 block md:inline-block text-center"
