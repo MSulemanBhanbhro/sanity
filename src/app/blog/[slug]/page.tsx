@@ -1,4 +1,4 @@
-// page.tsx
+
 
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
@@ -14,7 +14,7 @@ export async function generateStaticParams() {
   const slugRoutes = slugs.map((item: { slug: string }) => item.slug);
 
   return slugRoutes.map((slug: string) => ({
-    params: { slug } // Return the slug as part of params
+    slug, // Return the slug directly
   }));
 }
 
@@ -22,12 +22,12 @@ export async function generateStaticParams() {
 interface PageProps {
   params: {
     slug: string;
-  } | Promise<any>;
+  };
 }
 
-
 const Page = async ({ params }: PageProps) => {
-  const { slug } = await params; // Await the promise to get the slug
+  const { slug } = params; // Access params without awaiting
+
   // Fetching the post details by slug
   const query = `*[_type == 'post' && slug.current == "${slug}"]{
     title,
