@@ -22,10 +22,12 @@ export async function generateStaticParams() {
 interface PageProps {
   params: {
     slug: string;
-  };
+  } | Promise<any>;
 }
 
-const Page = async ({ params: { slug } }: PageProps) => {
+
+const Page = async ({ params }: PageProps) => {
+  const { slug } = await params; // Await the promise to get the slug
   // Fetching the post details by slug
   const query = `*[_type == 'post' && slug.current == "${slug}"]{
     title,
