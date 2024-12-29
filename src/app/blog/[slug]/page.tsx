@@ -2,9 +2,10 @@
 
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
-// Adjust this import as per your project structure
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/urlFor';
+
+export const revalidate = 60; //seconds
 
 // Generate static params for dynamic routes
 export async function generateStaticParams() {
